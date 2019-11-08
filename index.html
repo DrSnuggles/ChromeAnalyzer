@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>3D Spectrogram</title>
+  <script src="js/3D/matrix4x4.js"></script>
+  <script src="js/3D/cameracontroller.js"></script>
+  <script src="js/3D/visualizer.js"></script>
+  <script src="js/o3djs/base.js"></script>
+  <script src="js/o3djs/math.js"></script>
+  <script src="js/o3djs/quaternions.js"></script>
+  <script src="js/o3djs/shader.js"></script>
+  <script src="js/spectrogram.js"></script>
+  <style>
+    audio, canvas, select {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100vw;
+    }
+    #myCanvas {
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas"></canvas>
+
+  <audio controls autoplay loop id="myAudio" onplay="spec3D.start(myAudio, myCanvas)">
+    <source src="snd/WulleWulle.mp3"/>
+  </audio>
+
+  <select onchange="spec3D.analyserView.analysisType = this.selectedIndex">
+    <option>Frequency</option>
+    <option>Sonogram</option>
+    <option selected>3D Sonogram</option>
+    <option>Waveform</option>
+  </select>
+
+</body>
+</html>
