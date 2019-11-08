@@ -24,8 +24,8 @@ var spec3D = {
     this.canvas = canvas;
 
     // analyze source
+    var audioCtx = new AudioContext();
     if (source.tagName === "AUDIO") {
-      var audioCtx = new AudioContext();
       source = audioCtx.createMediaElementSource(source); // creates source from audio tag with at least 2channels
       source.connect(audioCtx.destination); // route source to destination
     }
