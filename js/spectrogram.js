@@ -31,7 +31,7 @@ var spec3D = {
     }
 
     // Analyser
-    this.analyser = audioCtx.createAnalyser();
+    this.analyser = source.context.createAnalyser();
     this.analyser.fftSize = 4096;
     this.analyser.smoothingTimeConstant = 0;
     source.connect(this.analyser);
